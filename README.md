@@ -11,13 +11,16 @@ The network adaptor is configured to connect to any `192.168.0.0` network. The g
 To start VPN server as a docker container run:
 
 ````
-docker run -ti --net=host --privileged -p 1723:1723 -e client=some_user -e server=* -e password=password -e acceptable_local_ip_addresses=* energywebfoundation/docker-vpn-pptp
+docker run -ti --net=host --privileged \
+-p 1723:1723 -e client=some_user \
+-e server=* -e password=password \
+-e acceptable_local_ip_addresses=* \
+pauldepraz/utod
 ````
 
 ## Connecting to VPN service
 You can use any PPTP client configured to accept CHAP only to connect to the service. To authenticate use credentials provided.
 
 
-**Note:** Before starting container in `--net=host` mode, please read how networking in `host` mode works in Docker:
-https://docs.docker.com/reference/run/#mode-host
+**Note:** Before starting container in `--net=host` mode, please [read how networking in host mode](https://docs.docker.com/network/network-tutorial-host/#prerequisites) works in Docker.
 
